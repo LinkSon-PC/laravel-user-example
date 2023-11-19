@@ -6,6 +6,7 @@ use App\Http\Controllers\EstudianteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ResultadoController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ use App\Http\Controllers\ResultadoController;
 | php artisan make:controller nameController
 */
 
+Route::view('/','welcome');
 Route::view('/home','home')->name('home');
 
 Route::get('resultado', [ResultadoController::class, 'index'])->name('resultado.index');
@@ -40,9 +42,6 @@ Route::delete('estudiante/{estudiante}', [EstudianteController::class, 'destroy'
  */
 
 Route::resource('estudiante', 'EstudianteController');
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('login.index');
-Route::post('login', [LoginController::class, 'login'])->name('login.store');
-Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+Auth::routes();
 
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.index');
-Route::post('/register', [RegisterController::class, 'register'])->name('register.register');
+Route::get('/home', 'HomeController@index')->name('home');

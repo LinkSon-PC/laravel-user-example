@@ -6,15 +6,23 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    //
-    public function __invoke()
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        return "Bienvenido a Laravel";
+        $this->middleware('auth');
     }
 
-    public function index($id)
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
     {
-        return "Bienvenido Index $id";
+        return view('home');
     }
-
 }

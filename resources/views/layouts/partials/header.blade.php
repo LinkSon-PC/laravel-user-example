@@ -10,8 +10,8 @@
                 <li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
             @else
             
-                <li><a href="{{route('login.index')}}" class="{{request()->routeIs('login.*')? 'active' : ''}}">Login</a></li>
-                <li><a href="{{route('register.index')}}" class="{{request()->routeIs('register.*')? 'active' : ''}}">Registro</a></li>
+                <li><a href="{{route('login')}}" class="{{request()->routeIs('login.*')? 'active' : ''}}">Login</a></li>
+                <li><a href="{{route('register')}}" class="{{request()->routeIs('register.*')? 'active' : ''}}">Registro</a></li>
             @endif
             
         </ul>
